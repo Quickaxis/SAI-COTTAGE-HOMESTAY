@@ -1605,11 +1605,16 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Why Stay Us Grid Overrides */
     .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 24px;
     }
     
     .why-card {
+        flex: 0 1 calc(50% - 12px);
+        min-width: 280px;
+        max-width: 360px;
         padding: 28px;
         border-radius: var(--radius-card);
         min-height: auto;
@@ -1856,11 +1861,16 @@ h1, h2, h3, h4, h5, h6 {
     
     /* Why Stay Us Grid Overrides */
     .why-grid {
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 32px;
     }
     
     .why-card {
+        flex: 0 1 calc(33.333% - 22px);
+        min-width: 280px;
+        max-width: 360px;
         padding: 32px;
     }
     
