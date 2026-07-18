@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Cottage Homestay | Premium Boutique Homestay in Dibrugarh, Assam</title>
+    <meta name="description" content="Experience warm Assamese hospitality at Sai Cottage Homestay, Boiragimoth, Dibrugarh. Premium AC & Non-AC rooms with home-cooked kitchen options, parking, and a peaceful environment.">
+    
+    <link rel="icon" type="image/jpeg" href="photos/logo.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. FLOATING NAVIGATION BAR -->
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" style="display:flex; align-items:center; gap:10px; font-family:var(--font-heading); font-size:20px; font-weight:500; letter-spacing:0.02em;">
+                <img src="photos/logo.jpg" alt="Sai Cottage Logo" class="logo-img">
+                Sai Cottage
+            </a>
+            
+            <nav class="nav-menu-wrapper">
+                <ul class="nav-menu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#rooms" class="nav-link">Rooms</a></li>
+                    <li><a href="#amenities" class="nav-link">Amenities</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="btn btn-primary btn-sm" onclick="openBookingDialog()">Book Now</button>
+            </div>
+
+            <!-- Hamburger toggler for responsive viewports -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <ul class="nav-menu">
+            <li><a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#rooms" class="nav-link" onclick="closeMobileMenu()">Rooms</a></li>
+            <li><a href="#amenities" class="nav-link" onclick="closeMobileMenu()">Amenities</a></li>
+            <li><a href="#gallery" class="nav-link" onclick="closeMobileMenu()">Gallery</a></li>
+            <li><a href="#location" class="nav-link" onclick="closeMobileMenu()">Location</a></li>
+            <li><button class="btn btn-primary" onclick="closeMobileMenu(); openBookingDialog()">Book Now</button></li>
+        </ul>
+    </div>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                
+                <div class="hero-content scroll-reveal">
+                    <span class="section-tag">Boutique Homestay Experience</span>
+                    <h1 class="hero-title">
+                        A Sanctuary of <span>Quiet Elegance</span> in the Heart of Assam.
+                    </h1>
+                    <p class="hero-desc">
+                        One of the first homestays in Dibrugarh, offering comfortable stays with warm hospitality for families, business travellers, and tourists.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="javascript:void(0)" class="btn btn-primary" onclick="bookOnWhatsApp('general')">
+                            <!-- WhatsApp Icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            Book on WhatsApp
+                        </a>
+                        <a href="tel:+918486298700" class="btn btn-secondary">
+                            <!-- Phone Icon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-slideshow-container scroll-reveal">
+                    <!-- Slides using the actual Sai Cottage Homestay room photos -->
+                    <div class="hero-slide active">
+                        <img src="photos/ac/1.png" alt="Sai Cottage AC Room" loading="eager">
+                        <span class="slide-tag">AC Room</span>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="photos/nonac1/1.png" alt="Sai Cottage Non-AC Room">
+                        <span class="slide-tag">Non-AC Room</span>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="photos/ac/2.png" alt="Sai Cottage AC Bedroom">
+                        <span class="slide-tag">Deluxe Luxury</span>
+                    </div>
+                    <div class="hero-slide">
+                        <img src="photos/nonac1/2.png" alt="Sai Cottage Non-AC Bedroom">
+                        <span class="slide-tag">Peaceful Living</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WELCOME STORY SECTION -->
+    <section class="welcome-section" id="about">
+        <div class="container">
+            <div class="welcome-grid">
+                
+                <div class="collage-container scroll-reveal">
+                    <div class="collage-img collage-primary">
+                        <img src="photos/ac/3.png" alt="Sai Cottage Room Layout" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="collage-img collage-secondary">
+                        <img src="photos/nonac1/3.png" alt="Sai Cottage Detail Layout" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+                
+                <div class="welcome-card-content scroll-reveal">
+                    <span class="section-tag">Our Story</span>
+                    <h2 class="section-title">Welcome to <span>Sai Cottage</span></h2>
+                    <div class="welcome-story">
+                        <p>
+                            Nestled in the quiet residential locality of Boiragimoth in Dibrugarh, Sai Cottage Homestay is born out of our passion for sharing genuine, homelike hospitality. Unlike commercial hotels, we welcome you directly into our peaceful atmosphere, offering a quiet escape from the bustle of the city center.
+                        </p>
+                        <p>
+                            We prioritize absolute cleanliness, fresh linen, and comfortable stays for all travelers. Whether you are in town for a medical visit to Assam Medical College (AMCH), exploring tea plantations, visiting on business, or traveling with family, we offer the comforts of home—including access to a fully functional common kitchen and a safe, peaceful residential neighborhood.
+                        </p>
+                        <p>
+                            We offer 8 neatly prepared rooms tailored to fit your budget. Experience simple comfort, warm hospitality, and the true colors of Assam.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. WHY STAY WITH US SECTION -->
+    <section class="why-stay-section">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Crafting Comfort</span>
+                <h2 class="section-title">Why Guests <span>Choose Us</span></h2>
+                <p class="section-desc">
+                    Every element of Sai Cottage Homestay is detailed to make your visit peaceful, smooth, and authentic.
+                </p>
+            </div>
+            
+            <div class="why-grid">
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- Home Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>Peaceful Location</h3>
+                    <p>Located in Boiragimoth, a serene, safe, residential area away from main road traffic noise, ensuring a good night's sleep.</p>
+                </div>
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- Sparkles Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.3-6.3l-.7.7M6.7 17.3l-.7.7m12.6 0l-.7-.7M6.7 6.7l-.7-.7M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+                    </div>
+                    <h3>Spotless Cleanliness</h3>
+                    <p>Cleanliness is our core promise. Spotless washrooms, daily housekeeping, and freshly washed linens await every check-in.</p>
+                </div>
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- Wallet Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><path d="M16 8h6M16 16h6M12 12h.01"/></svg>
+                    </div>
+                    <h3>Affordable Rates</h3>
+                    <p>Enjoy premium comfort, cozy rooms, and outstanding hospitality at rates that remain accessible and friendly.</p>
+                </div>
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- Users Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Family Friendly</h3>
+                    <p>A welcoming, gated homestay environment that feels completely safe for families, children, and solo female travelers.</p>
+                </div>
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- MapPin Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>Prime Location</h3>
+                    <p>Convenient access to Dibrugarh Railway Station, the airport, restaurants, shopping districts, and Assam Medical College.</p>
+                </div>
+                
+                <div class="why-card scroll-reveal">
+                    <div class="why-card-icon">
+                        <!-- Heart Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Genuine Hospitality</h3>
+                    <p>We are always on hand to assist with travel suggestions, medical visit coordination, or customized local meals.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ROOM COLLECTION SECTION -->
+    <section class="rooms-section" id="rooms">
+        <div class="container">
+            
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Comfort Stays</span>
+                <h2 class="section-title">Our Room <span>Selections</span></h2>
+                <p class="section-desc">
+                    We offer exactly two room categories, designed for simplicity, comfort, and direct utility. Check-in is at 12:00 PM and check-out is at 11:00 AM.
+                </p>
+            </div>
+
+            <div class="rooms-dual-layout">
+                
+                <!-- Category 1: Non-AC Rooms -->
+                <div class="premium-room-card scroll-reveal">
+                    <div class="room-media-box">
+                        <div class="room-card-slider" id="nonAcSlider">
+                            <div class="room-card-slide active">
+                                <img src="photos/nonac1/1.png" alt="Non-AC Rooms View 1" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/nonac1/2.png" alt="Non-AC Rooms View 2" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/nonac1/3.png" alt="Non-AC Rooms View 3" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/nonac1/4.png" alt="Non-AC Rooms View 4" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/nonac1/5.png" alt="Non-AC Rooms View 5" loading="lazy">
+                            </div>
+                        </div>
+                        <button class="room-card-slider-btn prev" onclick="navigateCardSlider(event, 'nonAcSlider', -1)" aria-label="Previous image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="room-card-slider-btn next" onclick="navigateCardSlider(event, 'nonAcSlider', 1)" aria-label="Next image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="room-card-slider-dots">
+                            <span class="room-card-dot active" onclick="setCardSlider(event, 'nonAcSlider', 0)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'nonAcSlider', 1)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'nonAcSlider', 2)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'nonAcSlider', 3)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'nonAcSlider', 4)"></span>
+                        </div>
+                    </div>
+                    <div class="room-details-box">
+                        <div class="room-header-block">
+                            <h3>Non-AC Rooms</h3>
+                            <span class="room-availability-tag">3 Non-AC Rooms Available</span>
+                        </div>
+                        
+                        <div class="room-price-info">
+                            <span class="price-main">₹1300 <span class="price-label">/ Night (Weekdays)</span></span>
+                            <span class="price-sub">₹1500 <span class="price-label">/ Night (Weekends)</span></span>
+                        </div>
+
+                        <p class="room-desc">
+                            Comfortable budget rooms with attached bathrooms, perfect for families, business travellers and medical visitors.
+                        </p>
+                        
+                        <ul class="room-amenities-bullets">
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Attached Bathroom
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Television
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                24×7 Hot Water
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Comfortable Bed
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Fresh Linen
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Common Kitchen
+                            </li>
+                        </ul>
+
+                        <div class="room-action-row">
+                            <a href="javascript:void(0)" class="btn btn-primary" onclick="bookOnWhatsApp('nonac')">
+                                Book on WhatsApp
+                            </a>
+                            <a href="tel:+918486298700" class="btn btn-secondary">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: AC Rooms -->
+                <div class="premium-room-card scroll-reveal">
+                    <div class="room-media-box">
+                        <div class="room-card-slider" id="acSlider">
+                            <div class="room-card-slide active">
+                                <img src="photos/ac/1.png" alt="AC Rooms View 1" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/ac/2.png" alt="AC Rooms View 2" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/ac/3.png" alt="AC Rooms View 3" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/ac/4.png" alt="AC Rooms View 4" loading="lazy">
+                            </div>
+                            <div class="room-card-slide">
+                                <img src="photos/ac/5.png" alt="AC Rooms View 5" loading="lazy">
+                            </div>
+                        </div>
+                        <button class="room-card-slider-btn prev" onclick="navigateCardSlider(event, 'acSlider', -1)" aria-label="Previous image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="room-card-slider-btn next" onclick="navigateCardSlider(event, 'acSlider', 1)" aria-label="Next image">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="room-card-slider-dots">
+                            <span class="room-card-dot active" onclick="setCardSlider(event, 'acSlider', 0)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'acSlider', 1)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'acSlider', 2)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'acSlider', 3)"></span>
+                            <span class="room-card-dot" onclick="setCardSlider(event, 'acSlider', 4)"></span>
+                        </div>
+                    </div>
+                    <div class="room-details-box">
+                        <div class="room-header-block">
+                            <h3>AC Rooms</h3>
+                            <span class="room-availability-tag">4 AC Rooms Available</span>
+                        </div>
+                        
+                        <div class="room-price-info">
+                            <span class="price-main">₹2000 <span class="price-label">/ Night</span></span>
+                        </div>
+
+                        <p class="room-desc">
+                            Modern air-conditioned rooms with premium comfort and essential amenities for a relaxing stay.
+                        </p>
+                        
+                        <ul class="room-amenities-bullets">
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Air Conditioner
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Attached Bathroom
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Television
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                24×7 Hot Water
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Comfortable Bed
+                            </li>
+                            <li class="room-amenity-bullet-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                Fresh Linen
+                            </li>
+                        </ul>
+
+                        <div class="room-action-row">
+                            <a href="javascript:void(0)" class="btn btn-primary" onclick="bookOnWhatsApp('ac')">
+                                Book on WhatsApp
+                            </a>
+                            <a href="tel:+918486298700" class="btn btn-secondary">Call Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. AMENITIES SECTION -->
+    <section class="amenities-section" id="amenities">
+        <div class="container">
+            
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Thoughtful Details</span>
+                <h2 class="section-title">Designed for <span>Everyday Comfort</span></h2>
+                <p class="section-desc">
+                    Enjoy home conveniences paired with boutique premium service parameters for an easy, stress-free stay.
+                </p>
+            </div>
+
+            <div class="amenities-grid-split">
+                
+                <!-- Room Amenities -->
+                <div class="amenity-panel scroll-reveal">
+                    <h3>
+                        <!-- Shield Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        In-Room Amenities
+                    </h3>
+                    <ul class="amenity-list">
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Attached Bathroom
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            24×7 Hot Water
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Television System
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Premium Fresh Linen
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Storage Wardrobe
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Clean Washroom Setup
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Power Backup Grid
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Premium Spring Mattresses
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Property Amenities -->
+                <div class="amenity-panel scroll-reveal">
+                    <h3>
+                        <!-- Coffee Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                        Property Features
+                    </h3>
+                    <ul class="amenity-list">
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Common Functional Kitchen
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Gated Vehicle Parking
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Family Friendly Setup
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Quiet Residential Locality
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Daily Room Housekeeping
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Secure & Safe Gated Boundary
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            High-Speed WiFi Access
+                        </li>
+                        <li class="amenity-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            On-Call Local Dining meals
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MASONRY GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Visual Story</span>
+                <h2 class="section-title">Property <span>Gallery</span></h2>
+                <p class="section-desc">
+                    A preview of our warm rooms, spaces, and clean residential environment.
+                </p>
+            </div>
+            
+            <!-- Categories filter -->
+            <div class="gallery-filters scroll-reveal">
+                <button class="filter-btn active" onclick="filterGallery('all')">All Photos</button>
+                <button class="filter-btn" onclick="filterGallery('ac')">AC Rooms</button>
+                <button class="filter-btn" onclick="filterGallery('nonac')">Non-AC Rooms</button>
+                <button class="filter-btn" onclick="filterGallery('property')">Property</button>
+            </div>
+
+            <!-- Responsive Gallery Photo Grid -->
+            <div class="gallery-masonry scroll-reveal" id="masonryGrid">
+                
+                <!-- AC Rooms Photos (0-4) -->
+                <div class="gallery-item g-ac" onclick="openLightbox(0)">
+                    <img src="photos/ac/1.png" alt="Deluxe AC Room Bed View" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>AC Room (Bed View)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-ac" onclick="openLightbox(1)">
+                    <img src="photos/ac/2.png" alt="Deluxe AC Room Bedroom Layout" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>AC Room (Bedroom Layout)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-ac" onclick="openLightbox(2)">
+                    <img src="photos/ac/3.png" alt="Deluxe AC Room Seating Details" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>AC Room (Seating Details)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-ac" onclick="openLightbox(3)">
+                    <img src="photos/ac/4.png" alt="Deluxe AC Room Premium Comfort" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>AC Room (Premium Comfort)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-ac" onclick="openLightbox(4)">
+                    <img src="photos/ac/5.png" alt="Deluxe AC Room Premium Amenities" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>AC Room (Premium Amenities)</span>
+                    </div>
+                </div>
+                
+                <!-- Non-AC Rooms Photos (5-9) -->
+                <div class="gallery-item g-nonac" onclick="openLightbox(5)">
+                    <img src="photos/nonac1/1.png" alt="Non-AC Room Bed View" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Non-AC Room (Bed View)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-nonac" onclick="openLightbox(6)">
+                    <img src="photos/nonac1/2.png" alt="Non-AC Room Layout Comfort" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Non-AC Room (Layout Comfort)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-nonac" onclick="openLightbox(7)">
+                    <img src="photos/nonac1/3.png" alt="Non-AC Room Furnishing Details" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Non-AC Room (Furnishing Details)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-nonac" onclick="openLightbox(8)">
+                    <img src="photos/nonac1/4.png" alt="Non-AC Room Cozy Interiors" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Non-AC Room (Cozy Interiors)</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-nonac" onclick="openLightbox(9)">
+                    <img src="photos/nonac1/5.png" alt="Non-AC Room Practical Amenities" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Non-AC Room (Practical Amenities)</span>
+                    </div>
+                </div>
+
+                <!-- Property Photos (10-12) -->
+                <div class="gallery-item g-property" onclick="openLightbox(10)">
+                    <img src="photos/reception.png" alt="Reception Area" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Reception</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-property" onclick="openLightbox(11)">
+                    <img src="photos/parking1.png" alt="Main Parking Area" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Main Parking</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item g-property" onclick="openLightbox(12)">
+                    <img src="photos/parking2.png" alt="Property Entrance" loading="lazy" style="width:100%; height:260px; object-fit:cover;">
+                    <div class="gallery-item-overlay">
+                        <span>Property Entrance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-action-btn-row scroll-reveal" style="text-align:center; margin-top:40px;">
+                <button class="btn btn-secondary" onclick="openLightbox(0)">Explore Full Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FREQUENTLY ASKED QUESTIONS -->
+    <section class="faq-section">
+        <div class="container">
+            
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Quick Answers</span>
+                <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            </div>
+
+            <div class="faq-max scroll-reveal">
+                <div class="faq-list">
+                    
+                    <div class="faq-item">
+                        <button class="faq-trigger" onclick="toggleFaq(this)">
+                            <h4>Do you have vehicle parking?</h4>
+                            <svg class="faq-icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                Yes, we offer secure, gated vehicle parking inside the cottage boundary for our guests.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger" onclick="toggleFaq(this)">
+                            <h4>Do you have AC rooms?</h4>
+                            <svg class="faq-icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                Yes. Out of our 8 rooms, we have 4 Deluxe Air Conditioned rooms and 4 Budget Non-Air Conditioned rooms.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger" onclick="toggleFaq(this)">
+                            <h4>Is hot water available in the washrooms?</h4>
+                            <svg class="faq-icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                Yes, we provide 24×7 hot water access in all attached washrooms via premium water geysers.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger" onclick="toggleFaq(this)">
+                            <h4>Is kitchen access available for guests?</h4>
+                            <svg class="faq-icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                Yes, guests have access to a common kitchen facility where they can cook their own meals. This is particularly helpful for families and long-stay guests.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger" onclick="toggleFaq(this)">
+                            <h4>How can I book a room?</h4>
+                            <svg class="faq-icon-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-content-inner">
+                                You can book directly by clicking any "Book Now" button on this website, which allows you to send a pre-formatted check-in details text directly to our WhatsApp number, or you can call us directly at +91 84862 98700.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. LOCATION & MAPS -->
+    <section class="contact-section" id="location">
+        <div class="container">
+            
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Map & Directions</span>
+                <h2 class="section-title">Where to <span>Find Us</span></h2>
+                <p class="section-desc">
+                    Located in the calm area of Boiragimoth, Dibrugarh, offering convenient access from airport, stations, and markets.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                
+                <div class="contact-info-panel scroll-reveal">
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-card-details">
+                            <h4>Property Address</h4>
+                            <p>
+                                Sai Cottage Homestay<br>
+                                Boiragimoth, Dibrugarh<br>
+                                Assam, India, PIN 786001
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-card-details">
+                            <h4>Phone Booking Inquiry</h4>
+                            <p>
+                                <a href="tel:+918486298700">+91 84862 98700</a><br>
+                                <a href="tel:+918486298700">Available 24/7 for Direct Bookings</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        </div>
+                        <div class="contact-card-details">
+                            <h4>WhatsApp Instant Inquiry</h4>
+                            <p>
+                                <a href="javascript:void(0)" onclick="bookOnWhatsApp('general')">Chat on WhatsApp Now</a><br>
+                                <a href="tel:+918486298700">Call for Booking</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="map-embed-wrapper scroll-reveal">
+                    <!-- Google Maps Embed of Dibrugarh Area / Sai Cottage Homestay -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.877864389679!2d94.90802777610667!3d27.48833917600742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3740981e1beec4b9%3A0xe75efba82fb0bdc4!2sSai%20Cottage%20Homestay!5e0!3m2!1sen!2sin!4v1717317930000!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. LUXURY DARK FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand" style="display:flex; flex-direction:column; align-items:flex-start;">
+                    <img src="photos/logo.jpg" alt="Sai Cottage Logo" class="logo-img footer-logo">
+                    <p>A warm, peaceful boutique family homestay offering affordable comfort and genuine Assamese hospitality in Dibrugarh, India.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Anchors</h4>
+                    <ul class="footer-menu">
+                        <li><a href="#about">About Our Home</a></li>
+                        <li><a href="#rooms">Room Collection</a></li>
+                        <li><a href="#amenities">Facilities</a></li>
+                        <li><a href="#gallery">Visual Gallery</a></li>
+                        <li><a href="#location">Find Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-details">
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Boiragimoth, Dibrugarh, Assam, PIN 786001
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +91 84862 98700
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+                            Direct Gated Booking Line
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sai Cottage Homestay. All Rights Reserved.</p>
+                <p>Designed with Quiet Luxury in Dibrugarh, Assam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SIMPLE BOOKING DIALOG -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="booking-modal-card">
+            
+            <div class="modal-header">
+                <h3>Book Your Stay</h3>
+                <span class="modal-close" onclick="closeBookingDialog()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <p class="booking-dialog-subtitle">We're happy to help you with room availability, pricing and reservations.</p>
+                <p class="booking-dialog-subtitle" style="margin-bottom: 28px;">Choose your preferred booking method below.</p>
+
+                <a href="javascript:void(0)" class="btn btn-primary booking-dialog-btn" onclick="bookOnWhatsApp('general'); closeBookingDialog();">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Book on WhatsApp
+                </a>
+
+                <a href="tel:+918486298700" class="btn btn-secondary booking-dialog-btn" onclick="closeBookingDialog()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call Now
+                </a>
+
+                <p class="booking-dialog-phone">+91 84862 98700</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FULLSCREEN LIGHTBOX POPUP -->
+    <div class="lightbox-overlay" id="galleryLightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        
+        <div class="lightbox-content-wrapper">
+            <button class="lightbox-arrow lightbox-prev" onclick="navigateLightbox(-1)" aria-label="Previous image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            
+            <div class="lightbox-img-placeholder" id="lightboxImgWrapper" style="width:100%; height:100%;">
+                <img id="lightboxActualImage" src="" alt="Active View" style="width:100%; height:100%; object-fit:contain; border-radius:12px;">
+            </div>
+            
+            <button class="lightbox-arrow lightbox-next" onclick="navigateLightbox(1)" aria-label="Next image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+        
+        <div class="lightbox-caption" id="lightboxCaption">Image Caption</div>
+    </div>
+
+    <!-- MOBILE STICKY BAR ACTIONS -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+918486298700" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Now
+        </a>
+        <a href="javascript:void(0)" class="btn btn-primary" onclick="bookOnWhatsApp('general')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Book Now
+        </a>
+    </div>
+
+    <!-- CORE INTERACTION SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
