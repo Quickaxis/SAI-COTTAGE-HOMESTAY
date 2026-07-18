@@ -1872,8 +1872,29 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .gallery-masonry {
-        grid-template-columns: 1fr 1fr 1fr;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
         gap: 24px;
+    }
+    
+    .gallery-masonry.filter-all .row1-item {
+        grid-column: span 4;
+    }
+    
+    .gallery-masonry.filter-all .row2-item {
+        grid-column: span 3;
+    }
+    
+    .gallery-masonry.filter-ac .g-ac {
+        grid-column: span 6;
+    }
+    
+    .gallery-masonry.filter-nonac .g-nonac {
+        grid-column: span 6;
+    }
+    
+    .gallery-masonry.filter-property .g-property {
+        grid-column: span 4;
     }
     
     .gallery-item {

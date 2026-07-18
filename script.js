@@ -221,10 +221,16 @@ function filterGallery(category) {
         }
     });
 
+    const grid = document.getElementById('masonryGrid');
+    if (grid) {
+        grid.classList.remove('filter-all', 'filter-ac', 'filter-nonac', 'filter-property');
+        grid.classList.add(`filter-${category}`);
+    }
+
     const items = document.querySelectorAll('#masonryGrid .gallery-item');
     let shownCount = 0;
     const limits = {
-        'all': 4,
+        'all': 7,
         'ac': 2,
         'nonac': 2,
         'property': 3
@@ -259,16 +265,13 @@ function filterGallery(category) {
 
 // ===== 4. HD GALLERY LIGHTBOX SYSTEM (HIGH-QUALITY PHOTOS) =====
 const lightboxPlaceholders = [
-    { src: 'photos/ac/1.png', caption: 'Sai Cottage Homestay — Deluxe AC Room Bed View' },
-    { src: 'photos/ac/2.png', caption: 'Sai Cottage Homestay — Deluxe AC Room Bedroom Layout' },
-    { src: 'photos/ac/3.png', caption: 'Sai Cottage Homestay — Deluxe AC Room Seating Details' },
-    { src: 'photos/ac/4.png', caption: 'Sai Cottage Homestay — Deluxe AC Room Premium Comfort' },
-    { src: 'photos/ac/5.png', caption: 'Sai Cottage Homestay — Deluxe AC Room Premium Amenities' },
-    { src: 'photos/nonac1/1.png', caption: 'Sai Cottage Homestay — Non-AC Room Bed View' },
-    { src: 'photos/nonac1/2.png', caption: 'Sai Cottage Homestay — Non-AC Room Layout Comfort' },
-    { src: 'photos/nonac1/3.png', caption: 'Sai Cottage Homestay — Non-AC Room Furnishing Details' },
-    { src: 'photos/nonac1/4.png', caption: 'Sai Cottage Homestay — Non-AC Room Cozy Interiors' },
-    { src: 'photos/nonac1/5.png', caption: 'Sai Cottage Homestay — Non-AC Room Practical Amenities' }
+    { src: 'photos/nonac1/1.png', caption: 'Sai Cottage Homestay — Non-AC Room 1' },
+    { src: 'photos/ac/1.png', caption: 'Sai Cottage Homestay — AC Room 1' },
+    { src: 'photos/reception.png', caption: 'Sai Cottage Homestay — Reception' },
+    { src: 'photos/nonac1/2.png', caption: 'Sai Cottage Homestay — Non-AC Room 2' },
+    { src: 'photos/ac/2.png', caption: 'Sai Cottage Homestay — AC Room 2' },
+    { src: 'photos/parking1.png', caption: 'Sai Cottage Homestay — Parking 1' },
+    { src: 'photos/parking2.png', caption: 'Sai Cottage Homestay — Parking 2' }
 ];
 
 let activeLightboxIdx = 0;
