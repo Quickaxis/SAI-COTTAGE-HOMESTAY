@@ -727,7 +727,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
-/* Slider chevron buttons - fade in on card hover */
+/* Slider chevron buttons - always visible inside the image */
 .room-card-slider-btn {
     position: absolute;
     top: 50%;
@@ -735,28 +735,35 @@ h1, h2, h3, h4, h5, h6 {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(252, 251, 248, 0.8);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(227, 222, 211, 0.4);
-    color: var(--color-primary);
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s ease, background-color 0.2s ease;
+    z-index: 100;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: var(--shadow-ambient);
 }
 
-.room-media-box:hover .room-card-slider-btn {
-    opacity: 1;
+/* Accessible touch target area */
+.room-card-slider-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 
 .room-card-slider-btn:hover {
-    background-color: var(--color-bg-primary);
-    color: var(--color-dark-green);
+    background-color: #FFFFFF;
+    color: var(--color-primary);
 }
 
 .room-card-slider-btn.prev {
@@ -1830,6 +1837,11 @@ h1, h2, h3, h4, h5, h6 {
         height: 500px;
         flex-shrink: 0;
         border-radius: 24px;
+    }
+    
+    .room-card-slider-btn {
+        width: 40px;
+        height: 40px;
     }
     
     .room-card-slide {
