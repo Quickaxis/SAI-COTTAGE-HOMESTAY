@@ -328,46 +328,95 @@ h1, h2, h3, h4, h5, h6 {
     width: 16px;
 }
 
-/* Mobile Menu Overlay Sheet */
+/* Mobile Menu Overlay Sheet (Backdrop) */
 .mobile-overlay {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 100%;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    background-color: var(--color-bg-primary);
+    background-color: rgba(34, 34, 34, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     z-index: 1050;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    transition: var(--transition-smooth);
-    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms ease, visibility 300ms ease;
+    display: block;
 }
 
 .mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Drawer (Slide-out panel) */
+.mobile-drawer {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background-color: var(--color-bg-primary);
+    box-shadow: var(--shadow-large);
+    transition: right 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 80px 32px 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mobile-drawer.active {
     right: 0;
 }
 
-.mobile-overlay .nav-menu {
+/* Mobile Close (X) Button */
+.mobile-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    list-style: none;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    background: transparent;
+    border: none;
+    outline: none;
+    z-index: 1100;
+    transition: var(--transition-fast);
 }
 
-.mobile-overlay .nav-link {
+.mobile-close-btn:hover {
+    color: var(--color-primary);
+    transform: rotate(90deg);
+}
+
+.mobile-drawer .nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    list-style: none;
+    width: 100%;
+}
+
+.mobile-drawer .nav-link {
     font-size: 24px;
     font-family: var(--font-heading);
     color: var(--color-dark-green);
-    padding: 12px 24px; /* Large tap targets */
+    padding: 8px 0;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(227, 222, 211, 0.3);
 }
 
-.mobile-overlay .btn {
-    width: 200px;
-    margin-top: 16px;
+.mobile-drawer .btn {
+    width: 100%;
+    margin-top: 24px;
 }
 
 /* Hamburger Transformation active state */

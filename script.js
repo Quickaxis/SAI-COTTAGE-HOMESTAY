@@ -158,53 +158,132 @@ function initNavbarScroll() {
 }
 
 // ===== 2. MOBILE MENU OVERLAY TRANSITIONS & CLOSE ACTIONS =====
+let focusTrapHandler = null;
+
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
 
-    if (!menuToggle || !mobileOverlay) return;
+    if (!menuToggle || !mobileOverlay || !mobileDrawer) return;
 
-    // Toggle active state
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation(); // Avoid triggering outside-click listener immediately
-        menuToggle.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
+    // Set initial aria attribute
+    menuToggle.setAttribute('aria-expanded', 'false');
 
-        if (mobileOverlay.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
+    function toggleMenu(e) {
+        if (e) e.stopPropagation();
+        const isOpen = mobileOverlay.classList.contains('active');
+        if (isOpen) {
+            closeMobileMenu();
         } else {
-            document.body.style.overflow = '';
+            openMobileMenu();
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+    }
+
+    // Close when clicking overlay (outside drawer)
+    mobileOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileOverlay) {
+            closeMobileMenu();
         }
     });
 
-    // Close when any menu nav link is clicked
-    const navLinks = mobileOverlay.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+    // Close when clicking navigation elements inside drawer
+    const drawerInteractive = mobileDrawer.querySelectorAll('.nav-link, .btn');
+    drawerInteractive.forEach(el => {
+        el.addEventListener('click', () => {
             closeMobileMenu();
         });
     });
 
-    // Close when clicking outside of the mobile overlay menu
-    document.addEventListener('click', (e) => {
-        if (mobileOverlay.classList.contains('active')) {
-            // Check if the click target is outside the mobile menu overlay content and not the menu toggle button itself
-            if (!mobileOverlay.contains(e.target) && !menuToggle.contains(e.target)) {
-                closeMobileMenu();
-            }
+    // Escape Key listener
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileOverlay.classList.contains('active')) {
+            closeMobileMenu();
         }
     });
+}
+
+function openMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+    if (!menuToggle || !mobileOverlay || !mobileDrawer) return;
+
+    menuToggle.classList.add('active');
+    mobileOverlay.classList.add('active');
+    mobileDrawer.classList.add('active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first element or close button
+    setTimeout(() => {
+        if (mobileCloseBtn) {
+            mobileCloseBtn.focus();
+        }
+    }, 100);
+
+    // Setup focus trap
+    const focusableEls = mobileDrawer.querySelectorAll('button, [href], input, select, textarea, [tabindex="0"]');
+    if (focusableEls.length > 0) {
+        const firstEl = focusableEls[0];
+        const lastEl = focusableEls[focusableEls.length - 1];
+
+        if (focusTrapHandler) {
+            document.removeEventListener('keydown', focusTrapHandler);
+        }
+
+        focusTrapHandler = function(e) {
+            if (e.key === 'Tab') {
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstEl) {
+                        lastEl.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastEl) {
+                        firstEl.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('keydown', focusTrapHandler);
+    }
 }
 
 function closeMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileDrawer = document.getElementById('mobileDrawer');
 
-    if (menuToggle && mobileOverlay) {
-        menuToggle.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+    if (!menuToggle || !mobileOverlay || !mobileDrawer) return;
+
+    menuToggle.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    mobileDrawer.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+
+    if (focusTrapHandler) {
+        document.removeEventListener('keydown', focusTrapHandler);
+        focusTrapHandler = null;
     }
+
+    setTimeout(() => {
+        menuToggle.focus();
+    }, 100);
 }
 
 // ===== 3. GALLERY CATEGORIES FILTER MASONS =====

@@ -44,14 +44,19 @@
 
     <!-- MOBILE MENU OVERLAY -->
     <div class="mobile-overlay" id="mobileOverlay">
-        <ul class="nav-menu">
-            <li><a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a></li>
-            <li><a href="#rooms" class="nav-link" onclick="closeMobileMenu()">Rooms</a></li>
-            <li><a href="#amenities" class="nav-link" onclick="closeMobileMenu()">Amenities</a></li>
-            <li><a href="#gallery" class="nav-link" onclick="closeMobileMenu()">Gallery</a></li>
-            <li><a href="#location" class="nav-link" onclick="closeMobileMenu()">Location</a></li>
-            <li><button class="btn btn-primary" onclick="closeMobileMenu(); openBookingDialog()">Book Now</button></li>
-        </ul>
+        <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+            <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#rooms" class="nav-link">Rooms</a></li>
+                <li><a href="#amenities" class="nav-link">Amenities</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#location" class="nav-link">Location</a></li>
+                <li><button class="btn btn-primary" onclick="openBookingDialog()">Book Now</button></li>
+            </ul>
+        </div>
     </div>
 
     <!-- 2. HERO SECTION -->
