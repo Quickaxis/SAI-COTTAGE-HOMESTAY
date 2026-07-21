@@ -25,23 +25,23 @@ function initHeroSlideshow() {
     }, 5500);
 }
 
-// // ===== 2. INTERACTIVE ROOM CARD SLIDERS (SHARED SINGLE DATA SOURCE) =====
+// ===== 2. INTERACTIVE ROOM CARD SLIDERS (SHARED SINGLE DATA SOURCE) =====
 const ROOM_SLIDERS_CONFIG = {
     nonAcSlider: [
-        { src: 'photos/nonac1/1.png?v=2', alt: 'Non-AC Rooms View 1' },
-        { src: 'photos/nonac1/2.png?v=2', alt: 'Non-AC Rooms View 2' },
-        { src: 'photos/nonac1/3.png?v=2', alt: 'Non-AC Rooms View 3' },
-        { src: 'photos/nonac1/4.png?v=2', alt: 'Non-AC Rooms View 4' },
-        { src: 'photos/nonac1/5.png?v=2', alt: 'Non-AC Rooms View 5' }
+        { src: 'photos/nonac1/1.png?v=3', alt: 'Non-AC Rooms View 1' },
+        { src: 'photos/nonac1/2.png?v=3', alt: 'Non-AC Rooms View 2' },
+        { src: 'photos/nonac1/3.png?v=3', alt: 'Non-AC Rooms View 3' },
+        { src: 'photos/nonac1/4.png?v=3', alt: 'Non-AC Rooms View 4' },
+        { src: 'photos/nonac1/5.png?v=3', alt: 'Non-AC Rooms View 5' }
     ],
     acSlider: [
-        { src: 'photos/ac/1.png?v=2', alt: 'AC Rooms View 1' },
-        { src: 'photos/ac/2.png?v=2', alt: 'AC Rooms View 2' },
-        { src: 'photos/ac/acnew.png?v=2', alt: 'AC Rooms View 3' },
-        { src: 'photos/ac/acnew2.png?v=2', alt: 'AC Rooms View 4' },
-        { src: 'photos/ac/3.png?v=2', alt: 'AC Rooms View 5' },
-        { src: 'photos/ac/4.png?v=2', alt: 'AC Rooms View 6' },
-        { src: 'photos/ac/5.png?v=2', alt: 'AC Rooms View 7' }
+        { src: 'photos/ac/1.png?v=3', alt: 'AC Rooms View 1' },
+        { src: 'photos/ac/2.png?v=3', alt: 'AC Rooms View 2' },
+        { src: 'photos/ac/acnew.png?v=3', alt: 'AC Rooms View 3' },
+        { src: 'photos/ac/acnew2.png?v=3', alt: 'AC Rooms View 4' },
+        { src: 'photos/ac/3.png?v=3', alt: 'AC Rooms View 5' },
+        { src: 'photos/ac/4.png?v=3', alt: 'AC Rooms View 6' },
+        { src: 'photos/ac/5.png?v=3', alt: 'AC Rooms View 7' }
     ]
 };
 
@@ -377,13 +377,13 @@ function filterGallery(category) {
 
 // ===== 4. HD GALLERY LIGHTBOX SYSTEM (HIGH-QUALITY PHOTOS) =====
 const lightboxPlaceholders = [
-    { src: 'photos/nonac1/1.png', caption: 'Sai Cottage Homestay — Non-AC Room 1' },
-    { src: 'photos/ac/1.png', caption: 'Sai Cottage Homestay — AC Room 1' },
-    { src: 'photos/reception.png', caption: 'Sai Cottage Homestay — Reception' },
-    { src: 'photos/nonac1/2.png', caption: 'Sai Cottage Homestay — Non-AC Room 2' },
-    { src: 'photos/ac/2.png', caption: 'Sai Cottage Homestay — AC Room 2' },
-    { src: 'photos/parking1.png', caption: 'Sai Cottage Homestay — Parking 1' },
-    { src: 'photos/parking2.png', caption: 'Sai Cottage Homestay — Parking 2' }
+    { src: 'photos/nonac1/1.png?v=3', caption: 'Sai Cottage Homestay — Non-AC Room 1' },
+    { src: 'photos/ac/1.png?v=3', caption: 'Sai Cottage Homestay — AC Room 1' },
+    { src: 'photos/reception.png?v=3', caption: 'Sai Cottage Homestay — Reception' },
+    { src: 'photos/nonac1/2.png?v=3', caption: 'Sai Cottage Homestay — Non-AC Room 2' },
+    { src: 'photos/ac/2.png?v=3', caption: 'Sai Cottage Homestay — AC Room 2' },
+    { src: 'photos/parking1.png?v=3', caption: 'Sai Cottage Homestay — Parking 1' },
+    { src: 'photos/parking2.png?v=3', caption: 'Sai Cottage Homestay — Parking 2' }
 ];
 
 let activeLightboxIdx = 0;
