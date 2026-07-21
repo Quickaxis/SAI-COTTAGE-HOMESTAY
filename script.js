@@ -100,7 +100,10 @@ function updateCardSliderUI(sliderId, newIdx) {
     const slider = document.getElementById(sliderId);
     if (!slider) return;
 
-    slider.style.transform = `translateX(-${newIdx * 20}%)`;
+    const state = cardSliderStates[sliderId];
+    const slidesCount = state ? state.slidesCount : slider.querySelectorAll('.room-card-slide').length;
+
+    slider.style.transform = `translateX(-${(newIdx / slidesCount) * 100}%)`;
 
     const parent = slider.parentElement;
     const prevBtn = parent.querySelector('.room-card-slider-btn.prev');
