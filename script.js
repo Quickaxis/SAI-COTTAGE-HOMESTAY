@@ -25,56 +25,100 @@ function initHeroSlideshow() {
     }, 5500);
 }
 
-// ===== 2. INTERACTIVE ROOM CARD SLIDERS (SHARED SINGLE DATA SOURCE) =====
-const ROOM_SLIDERS_CONFIG = {
-    nonAcSlider: [
-        { src: 'photos/nonac1/1.png?v=3', alt: 'Non-AC Rooms View 1' },
-        { src: 'photos/nonac1/2.png?v=3', alt: 'Non-AC Rooms View 2' },
-        { src: 'photos/nonac1/3.png?v=3', alt: 'Non-AC Rooms View 3' },
-        { src: 'photos/nonac1/4.png?v=3', alt: 'Non-AC Rooms View 4' },
-        { src: 'photos/nonac1/5.png?v=3', alt: 'Non-AC Rooms View 5' }
-    ],
-    acSlider: [
-        { src: 'photos/ac/1.png?v=3', alt: 'AC Rooms View 1' },
-        { src: 'photos/ac/2.png?v=3', alt: 'AC Rooms View 2' },
-        { src: 'photos/ac/acnew.png?v=3', alt: 'AC Rooms View 3' },
-        { src: 'photos/ac/acnew2.png?v=3', alt: 'AC Rooms View 4' },
-        { src: 'photos/ac/3.png?v=3', alt: 'AC Rooms View 5' },
-        { src: 'photos/ac/4.png?v=3', alt: 'AC Rooms View 6' },
-        { src: 'photos/ac/5.png?v=3', alt: 'AC Rooms View 7' }
-    ]
+// ===== 2. INTERACTIVE ROOM CARD SLIDERS =====
+const sliderStates = {
+    nonAcSlider: 0,
+    acSlider: 0
 };
 
-const cardSliderStates = {};
-
 function initCardSliders() {
-    Object.keys(ROOM_SLIDERS_CONFIG).forEach(id => {
-        const slider = document.getElementById(id);
+    ['nonAcSlider', 'acSlider'].forEach(sliderId => {
+        const slider = document.getElementById(sliderId);
         if (!slider) return;
 
-        const config = ROOM_SLIDERS_CONFIG[id];
-        slider.innerHTML = config.map((img, idx) => `
-            <div class="room-card-slide${idx === 0 ? ' active' : ''}">
-                <img src="${img.src}" alt="${img.alt}" loading="lazy">
-            </div>
-        `).join('');
-
-        const parent = slider.parentElement;
-        const dotsWrapper = parent ? parent.querySelector('.room-card-slider-dots') : null;
-        if (dotsWrapper) {
-            dotsWrapper.innerHTML = config.map((_, idx) => `
-                <span class="room-card-dot${idx === 0 ? ' active' : ''}" onclick="setCardSlider(event, '${id}', ${idx})"></span>
-            `).join('');
-        }
-
-        cardSliderStates[id] = {
-            currentIdx: 0,
-            slidesCount: config.length
-        };
-
-        updateCardSliderUI(id, 0);
-        initSwipeEvents(id);
+        sliderStates[sliderId] = 0;
+        updateCardSliderUI(sliderId);
+        initSwipeEvents(sliderId);
     });
+}
+
+function updateCardSliderUI(sliderId) {
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
+
+    const parent = slider.parentElement;
+    const slides = slider.querySelectorAll('.room-card-slide');
+    const dots = parent ? parent.querySelectorAll('.room-card-dot') : [];
+    const totalSlides = slides.length;
+
+    if (totalSlides === 0) return;
+
+    // Ensure index stays strictly within bounds [0, totalSlides - 1]
+    let currentIndex = sliderStates[sliderId] || 0;
+    currentIndex = (currentIndex % totalSlides + totalSlides) % totalSlides;
+    sliderStates[sliderId] = currentIndex;
+
+    // Smooth track translation
+    slider.style.transform = `translateX(-${(currentIndex / totalSlides) * 100}%)`;
+
+    // Toggle active class on slides
+    slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+
+    // Toggle active class on dots
+    dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function navigateCardSlider(event, sliderId, direction) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.room-card-slide');
+    const totalSlides = slides.length;
+    if (totalSlides === 0) return;
+
+    let currentIndex = sliderStates[sliderId] || 0;
+    if (direction === 1) {
+        currentIndex = (currentIndex + 1) % totalSlides;
+    } else if (direction === -1) {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    }
+
+    sliderStates[sliderId] = currentIndex;
+    updateCardSliderUI(sliderId);
+}
+
+function setCardSlider(event, sliderId, targetIdx) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    const slider = document.getElementById(sliderId);
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.room-card-slide');
+    const totalSlides = slides.length;
+    if (totalSlides === 0) return;
+
+    if (targetIdx >= 0 && targetIdx < totalSlides) {
+        sliderStates[sliderId] = targetIdx;
+        updateCardSliderUI(sliderId);
+    }
 }
 
 function initSwipeEvents(sliderId) {
@@ -101,79 +145,13 @@ function initSwipeEvents(sliderId) {
         if (Math.abs(diff) > threshold) {
             if (diff > 0) {
                 // Swipe left -> Next photo
-                const state = cardSliderStates[sliderId];
-                if (state && state.currentIdx < state.slidesCount - 1) {
-                    changeCardSlide(sliderId, 1);
-                }
+                navigateCardSlider(null, sliderId, 1);
             } else {
                 // Swipe right -> Previous photo
-                const state = cardSliderStates[sliderId];
-                if (state && state.currentIdx > 0) {
-                    changeCardSlide(sliderId, -1);
-                }
+                navigateCardSlider(null, sliderId, -1);
             }
         }
     }
-}
-
-function changeCardSlide(sliderId, direction) {
-    const state = cardSliderStates[sliderId];
-    if (!state) return;
-
-    const targetIdx = state.currentIdx + direction;
-    if (targetIdx < 0 || targetIdx >= state.slidesCount) return;
-
-    state.currentIdx = targetIdx;
-    updateCardSliderUI(sliderId, state.currentIdx);
-}
-
-function updateCardSliderUI(sliderId, newIdx) {
-    const slider = document.getElementById(sliderId);
-    if (!slider) return;
-
-    const state = cardSliderStates[sliderId];
-    const slidesCount = state ? state.slidesCount : slider.querySelectorAll('.room-card-slide').length;
-
-    slider.style.transform = `translateX(-${(newIdx / slidesCount) * 100}%)`;
-
-    const parent = slider.parentElement;
-    const prevBtn = parent.querySelector('.room-card-slider-btn.prev');
-    const nextBtn = parent.querySelector('.room-card-slider-btn.next');
-
-    if (prevBtn) {
-        prevBtn.style.display = (newIdx === 0) ? 'none' : 'flex';
-    }
-    if (nextBtn && state) {
-        nextBtn.style.display = (newIdx === slidesCount - 1) ? 'none' : 'flex';
-    }
-
-    const dotsWrapper = parent.querySelector('.room-card-slider-dots');
-    if (dotsWrapper) {
-        const dots = dotsWrapper.querySelectorAll('.room-card-dot');
-        dots.forEach((dot, idx) => {
-            if (idx === newIdx) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-}
-
-function navigateCardSlider(event, sliderId, direction) {
-    event.preventDefault();
-    event.stopPropagation();
-    changeCardSlide(sliderId, direction);
-}
-
-function setCardSlider(event, sliderId, targetIdx) {
-    event.preventDefault();
-    event.stopPropagation();
-    const state = cardSliderStates[sliderId];
-    if (!state || targetIdx === state.currentIdx) return;
-
-    state.currentIdx = targetIdx;
-    updateCardSliderUI(sliderId, targetIdx);
 }
 
 // ===== 3. FLOATING NAVBAR SCROLL CLASS =====
