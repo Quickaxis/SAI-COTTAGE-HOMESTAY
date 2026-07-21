@@ -745,7 +745,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .room-media-box {
     width: 100%;
-    height: 460px;
+    height: 520px;
     position: relative;
     border-radius: 24px;
     overflow: hidden;
@@ -1653,9 +1653,9 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .room-media-box {
-        width: 65%;
-        flex: 0 0 65%;
-        height: 520px;
+        width: 68%;
+        flex: 0 0 68%;
+        height: 580px;
         flex-shrink: 0;
         border-radius: 24px;
         margin: 0;
@@ -1667,8 +1667,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .room-details-box {
-        width: 35%;
-        flex: 0 0 35%;
+        width: 32%;
+        flex: 0 0 32%;
         padding: 4px 0;
         display: flex;
         flex-direction: column;
@@ -1892,7 +1892,7 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         flex-direction: column;
         gap: 48px;
-        max-width: 1200px;
+        max-width: 1240px;
         margin: 0 auto;
     }
     
@@ -1905,9 +1905,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .room-media-box {
-        width: 68%;
-        flex: 0 0 68%;
-        height: 620px;
+        width: 70%;
+        flex: 0 0 70%;
+        height: 720px;
         flex-shrink: 0;
         border-radius: 24px;
         background-color: #F8F5EE;
@@ -1923,8 +1923,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .room-details-box {
-        width: 32%;
-        flex: 0 0 32%;
+        width: 30%;
+        flex: 0 0 30%;
         padding: 8px 0;
         display: flex;
         flex-direction: column;
